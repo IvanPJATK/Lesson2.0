@@ -23,9 +23,12 @@ namespace APBD_TASK2.Models
             UserType.Employee => 5,
             _ => 0
         };
-        public User() 
+        public User(string name, string surname, UserType type)
         {
             Id = _nextId++;
+            Name = name;
+            Surname = surname;
+            UserType = type;
         }
     }
 }

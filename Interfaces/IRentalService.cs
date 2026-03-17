@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using APBD_TASK2.Database;
+using APBD_TASK2.Models;
 
-namespace APBD_TASK2.Interfaces
+namespace APBD_TASK2.Interfaces;
+
+public interface IRentalService
 {
-    public interface IRentalService
-    {
-        void AddEquipment();
-    }
+    void AddUser(User user);
+    void AddEquipment(Equipment equipment);
+    List<Equipment> GetAllEquipment();
+    List<Equipment> GetAvailableEquipment();
 }
