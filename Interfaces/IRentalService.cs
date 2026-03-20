@@ -9,4 +9,7 @@ public interface IRentalService
     void AddEquipment(Equipment equipment);
     List<Equipment> GetAllEquipment();
     List<Equipment> GetAvailableEquipment();
+    void setAvailableEquipment();
+    void setUnAvailableEquipment();
+
 }

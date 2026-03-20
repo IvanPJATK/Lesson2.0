@@ -1,4 +1,5 @@
 ﻿using APBD_TASK2.Database;
+using APBD_TASK2.Enum;
 using APBD_TASK2.Interfaces;
 using APBD_TASK2.Models;
 using System;
@@ -25,13 +26,34 @@ namespace APBD_TASK2.Services
 
         public List<Equipment> GetAvailableEquipment()
         {
-            throw new NotImplementedException();
+            var db = Singleton.Instance;
+            List<Equipment> AvailableEquipment = new();
+            for(int i = 0; i < db.Equipment.Count; i++)
+            {
+                if (db.Equipment[i].Status.Equals(EquipmentStatus.Available))
+                {
+                    AvailableEquipment.Add(db.Equipment[i]);
+                }
+            }
+            return AvailableEquipment;
         }
 
         public List<Equipment> GetAllEquipment()
         {
             var db = Singleton.Instance;
             return db.Equipment;
+        }
+
+        public void setEquipmentStatus(int equipmentId, EquipmentStatus status)
+        {
+            var db = Singleton.Instance;
+            for (int i = 0; i < db.Equipment.Count; i++)
+            {
+                if (db.Equipment[i].Id.Equals(equipmentId))
+                {
+                    db.Equipment[i].Status = status;
+                }
+            }
         }
     }
 }

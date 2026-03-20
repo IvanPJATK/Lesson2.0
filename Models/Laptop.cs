@@ -10,7 +10,8 @@ namespace APBD_TASK2.Models
     {
         public Laptop(string name, int ram, int screensize) : base(name)
         {
-            
+            RAMGb = ram;
+            ScreenSize = screensize;
         }
         public int RAMGb { set; get; }
         public int ScreenSize{get; set;}
