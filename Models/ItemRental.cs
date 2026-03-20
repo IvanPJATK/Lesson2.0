@@ -15,11 +15,11 @@ namespace APBD_TASK2.Models
         public User User { get; set; } = user;
         public DateTime From { get; set; } = from >= to ? throw new ArgumentException("Invalid time range") : from;
         public DateTime To { get; set; } = to;
-        public bool IsCancelled { get; private set; } = false;
+        public bool IsFinished { get; private set; } = false;
 
-        public void Cancel()
+        public void Finish()
         {
-            IsCancelled = true;
+            IsFinished = true;
         }
 
         public bool Overlaps(DateTime from, DateTime to)
