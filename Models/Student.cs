@@ -10,9 +10,12 @@ namespace APBD_TASK2.Models
     public class Student : User
     {
         public int YearOfStudies { get; set; }
-        public Student(string name, string surname, UserType type, int yearOfStudies) : base(name, surname, type)
+        public int studentNumber { get; set; }
+
+        public Student(string name, string surname, UserType type, int yearOfStudies, int studentNumber) : base(name, surname, type)
         {
             YearOfStudies = yearOfStudies;
+            this.studentNumber = studentNumber;
         }
     }
 }

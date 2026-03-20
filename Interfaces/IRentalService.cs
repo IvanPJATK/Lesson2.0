@@ -12,4 +12,8 @@ public interface IRentalService
     List<Equipment> GetAvailableEquipment();
     void setEquipmentStatus(int equipmentId, EquipmentStatus status);
     void CreateReservation(User user, Equipment equipment, DateTime from, DateTime to);
+    void CancelReservation(int reservationId);
+    int FinishReservation(int reservationId, DateTime currentDate);
+    List<ItemRental> GetUserReservations(User user);
+    List<ItemRental> GetAll();
 }

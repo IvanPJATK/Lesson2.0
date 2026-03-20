@@ -20,7 +20,7 @@ namespace APBD_TASK2.Models
         public int MaxAciveRentals => UserType switch
         {
             UserType.Student => 2,
-            UserType.Employee => 5,
+            UserType.Lecturer => 5,
             _ => 0
         };
         public User(string name, string surname, UserType type)

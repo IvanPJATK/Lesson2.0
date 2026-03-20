@@ -9,7 +9,7 @@ using APBD_TASK2.Services;
 var db = Singleton.Instance;
 
 var laptop = new Laptop("Asus Zenbook S14", 16, 14);
-var student = new Student("John", "Doe", UserType.Student, 2);
+var student = new Student("John", "Doe", UserType.Student, 2, 213);
 var rentalService = new RentalService();
 rentalService.AddUser(student);
 Console.WriteLine("Added a student " + student.Name + " to equipment");
