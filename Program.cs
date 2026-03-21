@@ -32,21 +32,28 @@ rentalService.AddEquipment(keyborad);
 int reservationId = rentalService.CreateReservation(student213, laptop, new DateTime(2026, 3, 2), new DateTime(2026, 3, 12));
 rentalService.setEquipmentStatus(laptop.Id, EquipmentStatus.Rented); //example with conflict will work without this too, just a different exception will be thrown
 Console.WriteLine(student213.Name + " has rented a " + laptop.Name);
-
+Console.WriteLine();
 //An attempted invalid operation
-//Console.WriteLine("Lecturer: " + lecturer.Name + " tried to rent a " + laptop.Name + " laptop");
-//rentalService.CreateReservation(lecturer, laptop, new DateTime(2026, 3, 4), new DateTime(2026, 3, 8));
-
+try
+{
+    Console.WriteLine("Lecturer: " + lecturer.Name + " tried to rent a " + laptop.Name + " laptop");
+    rentalService.CreateReservation(lecturer, laptop, new DateTime(2026, 3, 4), new DateTime(2026, 3, 8));
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+Console.WriteLine();
 //A return completed on time
 int penalty = rentalService.FinishReservation(reservationId, new DateTime(2026, 3, 11));
 Console.WriteLine(student213.Name + " has returned a " + laptop.Name + " with " + penalty + " penalty");
-
+Console.WriteLine();
 //A delayed return that leads to a penalty
 int reservationId2 = rentalService.CreateReservation(student404, keyborad, new DateTime(2026, 3, 6), new DateTime(2026, 3, 7));
 Console.WriteLine(student404.Name + " has rented a " + keyborad.Name);
 int penalty2 = rentalService.FinishReservation(reservationId2, new DateTime(2026, 3, 12));
 Console.WriteLine(student404.Name + " has returned a " + keyborad.Name + " with " + penalty2 + " penalty");
-
+Console.WriteLine();
 //Displaying a final report of the system state
 int reservationId3 = rentalService.CreateReservation(student110, mouse, new DateTime(2026, 3, 11), new DateTime(2026, 3, 21));
 
