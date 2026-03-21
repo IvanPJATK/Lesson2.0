@@ -59,7 +59,7 @@ namespace APBD_TASK2.Services
             }
         }
 
-        public void CreateReservation(User user, Equipment equipment, DateTime from, DateTime to)
+        public int CreateReservation(User user, Equipment equipment, DateTime from, DateTime to)
         {
             if (equipment.Status != EquipmentStatus.Available)
             {
@@ -87,6 +87,7 @@ namespace APBD_TASK2.Services
 
             var newItemRental = new ItemRental(equipment, user, from, to);
             _rentals.Add(newItemRental);
+            return newItemRental.Id;
         }
 
         public void CancelReservation(int reservationId)
@@ -109,11 +110,16 @@ namespace APBD_TASK2.Services
             {
                 throw new RentalNotFoundException(reservationId);
             }
+            if (reservation.IsFinished)
+            {
+                throw new AlreadyFinishedException(reservationId);
+            }
             if (reservation.To < currentDate)
             {
                 fee += (currentDate - reservation.To).Days;
                 fee *= 10;
             }
+            reservation.Finish();
             return fee;
         }
 

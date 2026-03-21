@@ -26,5 +26,10 @@ namespace APBD_TASK2.Models
         {
             return !(From > to || from > To);
         }
+
+        public override string ToString()
+        {
+            return "Item rental Id " + Id + " | Equipment " + Equipment.Name + " | User " + User.Name + " " + User.Surname + " | " + (IsFinished ? "Finished |" : "Not Finished |");
+        }
     }
 }

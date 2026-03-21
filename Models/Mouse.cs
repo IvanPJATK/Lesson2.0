@@ -8,11 +8,11 @@ namespace APBD_TASK2.Models
 {
     public class Mouse : Equipment
     {
-        public string Brand;
+        public string Size;
         public int MaxDPI;
-        public Mouse(string name, string description, string brand, int maxDPI) : base(name, description)
+        public Mouse(string name, string description, string size, int maxDPI) : base(name, description)
         {
-            Brand = brand;
+            Size = size;
             MaxDPI = maxDPI;
         }
     }

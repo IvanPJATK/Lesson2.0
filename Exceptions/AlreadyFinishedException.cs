@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace APBD_TASK2.Exceptions
 {
-    public class EquipmentUnavailableException(int equipmentId) 
-        : Exception("Equipment with id " + equipmentId + " is not available.");
+    public class AlreadyFinishedException(int reservationId)
+        : Exception("Reservation with Id " + reservationId + " is already finished.");
 }

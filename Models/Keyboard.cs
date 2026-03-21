@@ -10,12 +10,10 @@ namespace APBD_TASK2.Models
     {
         public string Format;
         public string Language_supported;
-        public string Brand;
-        public Keyboard(string name, string description, string format, string language_supported, string brand) : base(name, description)
+        public Keyboard(string name, string description, string format, string language_supported) : base(name, description)
         {
             Format = format;
             Language_supported = language_supported;
-            Brand = brand;
         }
     }
 }

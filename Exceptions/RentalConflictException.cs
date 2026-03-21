@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace APBD_TASK2.Exceptions
 {
-    public class RentalConflictException(int roomId, DateTime from, DateTime to)
-        : Exception("Room " + roomId + " is already reserved for the period from " + from + " to " + to);
+    public class RentalConflictException(int equipmentId, DateTime from, DateTime to)
+        : Exception("Equipment " + equipmentId + " is already reserved for the period from " + from + " to " + to);
 }
